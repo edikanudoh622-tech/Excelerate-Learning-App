@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'screen/login_screen.dart';
 
 void main() {
-  runApp(const ExcelerateApp());
+  runApp(const NextLearnApp());
 }
 
-class ExcelerateApp extends StatelessWidget {
-  const ExcelerateApp({super.key});
+class NextLearnApp extends StatelessWidget {
+  const NextLearnApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Excelerate',
+      title: 'Next Learn',
 
       theme: ThemeData(
         useMaterial3: true,
@@ -36,9 +36,7 @@ class ExcelerateApp extends StatelessWidget {
           elevation: 2,
           margin: EdgeInsets.zero,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(16),
-            ),
+            borderRadius: BorderRadius.circular(16),
           ),
         ),
 
@@ -47,32 +45,26 @@ class ExcelerateApp extends StatelessWidget {
           fillColor: Colors.white,
 
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
+            borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide.none,
           ),
 
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
-            borderSide: BorderSide(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
               color: Color(0xFFE2E8F0),
             ),
           ),
 
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
-            borderSide: BorderSide(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
               color: Color(0xFF2563EB),
               width: 2,
             ),
           ),
 
-          contentPadding: EdgeInsets.symmetric(
+          contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 16,
           ),

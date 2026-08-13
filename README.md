@@ -1,4 +1,4 @@
-# Excelerate App 🚀
+# Next Learn 🚀
 
 ## Project Overview
 

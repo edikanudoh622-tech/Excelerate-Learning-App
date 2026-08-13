@@ -75,7 +75,7 @@ class DashboardPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Excelerate',
+          'Next Learn',
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),

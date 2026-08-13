@@ -22,7 +22,9 @@ class _LoginScreenState extends State<LoginScreen> {
         passwordController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Please enter your email and password.'),
+          content: Text(
+            'Please enter your email and password.',
+          ),
         ),
       );
       return;
@@ -56,7 +58,6 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Logo
                 Center(
                   child: Container(
                     width: 85,
@@ -77,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const Center(
                   child: Text(
-                    'Excelerate',
+                    'Next Learn',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -196,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 Center(
                   child: Text(
-                    'Your learning journey starts here.',
+                    'Your journey to better learning starts here.',
                     style: TextStyle(
                       color: Colors.grey.shade600,
                       fontSize: 14,
