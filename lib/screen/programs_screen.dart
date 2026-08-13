@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'program_details_screen.dart';
 
 class ProgramsScreen extends StatelessWidget {
   const ProgramsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const purple = Color(0xFF6C4CE6);
+    const lightPurple = Color(0xFFE9E3FF);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -12,18 +16,45 @@ class ProgramsScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
+
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          const Text(
-            'Explore Programs',
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: lightPurple,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: const Row(
+              children: [
+                CircleAvatar(
+                  radius: 28,
+                  backgroundColor: purple,
+                  child: Icon(
+                    Icons.explore,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+
+                SizedBox(width: 15),
+
+                Expanded(
+                  child: Text(
+                    'Explore Programs',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF172033),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
 
           const Text(
             'Discover opportunities that can help you develop '
@@ -31,6 +62,7 @@ class ProgramsScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               color: Colors.grey,
+              height: 1.5,
             ),
           ),
 
@@ -83,22 +115,35 @@ class ProgramsScreen extends StatelessWidget {
     IconData icon,
     String duration,
   ) {
+    const purple = Color(0xFF6C4CE6);
+    const lightPurple = Color(0xFFE9E3FF);
+
     return Card(
       margin: const EdgeInsets.only(bottom: 18),
       elevation: 3,
+
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(18),
       ),
+
       child: Padding(
         padding: const EdgeInsets.all(18),
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+
           children: [
             Row(
               children: [
                 CircleAvatar(
                   radius: 28,
-                  child: Icon(icon, size: 30),
+                  backgroundColor: lightPurple,
+
+                  child: Icon(
+                    icon,
+                    size: 30,
+                    color: purple,
+                  ),
                 ),
 
                 const SizedBox(width: 15),
@@ -122,6 +167,7 @@ class ProgramsScreen extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.grey,
+                height: 1.4,
               ),
             ),
 
@@ -132,40 +178,43 @@ class ProgramsScreen extends StatelessWidget {
                 const Icon(
                   Icons.access_time,
                   size: 18,
+                  color: purple,
                 ),
 
                 const SizedBox(width: 5),
 
-                Text(duration),
+                Text(
+                  duration,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
 
                 const Spacer(),
 
                 ElevatedButton(
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text(title),
-                          content: Text(
-                            'This program provides learners with '
-                            'practical knowledge and skills. '
-                            'You can explore the learning content '
-                            'and participate in the program.',
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('Close'),
-                            ),
-                          ],
-                        );
-                      },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProgramDetailsScreen(
+                          title: title,
+                          description: description,
+                          duration: duration,
+                        ),
+                      ),
                     );
                   },
-                  child: const Text('View Details'),
+
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: purple,
+                    foregroundColor: Colors.white,
+                  ),
+
+                  child: const Text(
+                    'View Details',
+                  ),
                 ),
               ],
             ),

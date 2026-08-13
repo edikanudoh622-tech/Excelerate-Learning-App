@@ -10,6 +10,11 @@ class NextLearnApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFF6C4CE6);
+    const secondaryColor = Color(0xFF3B82F6);
+    const darkColor = Color(0xFF172033);
+    const backgroundColor = Color(0xFFF8F7FF);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Next Learn',
@@ -18,15 +23,19 @@ class NextLearnApp extends StatelessWidget {
         useMaterial3: true,
 
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2563EB),
+          seedColor: primaryColor,
           brightness: Brightness.light,
+        ).copyWith(
+          primary: primaryColor,
+          secondary: secondaryColor,
+          surface: Colors.white,
         ),
 
-        scaffoldBackgroundColor: const Color(0xFFF7F9FC),
+        scaffoldBackgroundColor: backgroundColor,
 
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
-          foregroundColor: Color(0xFF172033),
+          foregroundColor: darkColor,
           elevation: 0,
           centerTitle: false,
         ),
@@ -52,17 +61,19 @@ class NextLearnApp extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(
-              color: Color(0xFFE2E8F0),
+              color: Color(0xFFE4E0F5),
             ),
           ),
 
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(
-              color: Color(0xFF2563EB),
+              color: primaryColor,
               width: 2,
             ),
           ),
+
+          prefixIconColor: primaryColor,
 
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
@@ -72,13 +83,15 @@ class NextLearnApp extends StatelessWidget {
 
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF2563EB),
+            backgroundColor: primaryColor,
             foregroundColor: Colors.white,
             elevation: 0,
+
             padding: const EdgeInsets.symmetric(
               vertical: 15,
               horizontal: 22,
             ),
+
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -88,7 +101,15 @@ class NextLearnApp extends StatelessWidget {
         navigationBarTheme: NavigationBarThemeData(
           backgroundColor: Colors.white,
           elevation: 3,
-          indicatorColor: const Color(0xFFDCE8FF),
+
+          indicatorColor: const Color(0xFFE9E3FF),
+
+          iconTheme: WidgetStateProperty.all(
+            const IconThemeData(
+              color: primaryColor,
+            ),
+          ),
+
           labelTextStyle: WidgetStateProperty.all(
             const TextStyle(
               fontSize: 12,

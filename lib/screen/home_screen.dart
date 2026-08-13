@@ -141,7 +141,7 @@ class DashboardPage extends StatelessWidget {
               padding: const EdgeInsets.all(22),
 
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: const Color(0xFF6C4CE6),
                 borderRadius: BorderRadius.circular(18),
               ),
 
@@ -248,7 +248,9 @@ class DashboardPage extends StatelessWidget {
 
         leading: CircleAvatar(
           radius: 28,
-          child: Icon(icon),
+          backgroundColor: const Color(0xFFE9E3FF),
+          child: Icon(icon,
+          color: const Color(0xFF6C4CE6)),
         ),
 
         title: Text(
@@ -267,6 +269,7 @@ class DashboardPage extends StatelessWidget {
         trailing: const Icon(
           Icons.arrow_forward_ios,
           size: 18,
+          color: Color(0xFF6C4CE6),
         ),
 
         onTap: () {

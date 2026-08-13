@@ -5,32 +5,65 @@ class AnnouncementsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const purple = Color(0xFF6C4CE6);
+    const lightPurple = Color(0xFFE9E3FF);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           'Announcements',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
+
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          const Text(
-            'Latest Updates',
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: lightPurple,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: const Row(
+              children: [
+                CircleAvatar(
+                  radius: 28,
+                  backgroundColor: purple,
+                  child: Icon(
+                    Icons.notifications_rounded,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+
+                SizedBox(width: 15),
+
+                Expanded(
+                  child: Text(
+                    'Latest Announcements',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF172033),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
 
           const Text(
-            'Stay informed about programs, learning opportunities '
-            'and important updates.',
+            'Stay informed about new programs, learning '
+            'opportunities and important updates.',
             style: TextStyle(
               fontSize: 16,
               color: Colors.grey,
+              height: 1.5,
             ),
           ),
 
@@ -38,34 +71,34 @@ class AnnouncementsScreen extends StatelessWidget {
 
           announcementCard(
             'New Learning Opportunities',
-            'New learning resources and skill development '
-                'opportunities are now available for learners.',
-            'August 13, 2026',
-            Icons.school,
+            'New learning resources are now available. '
+                'Explore the Learning section to develop new skills.',
+            Icons.school_outlined,
+            'New',
           ),
 
           announcementCard(
-            'Program Registration Update',
-            'Check the available programs and review their '
-                'requirements before applying.',
-            'August 12, 2026',
-            Icons.app_registration,
+            'Program Applications Open',
+            'Applications are now open for selected development '
+                'programs. Explore the Programs section to learn more.',
+            Icons.campaign_outlined,
+            'Important',
           ),
 
           announcementCard(
-            'Important Internship Information',
-            'Learners are encouraged to regularly check the '
-                'platform for internship and program updates.',
-            'August 10, 2026',
-            Icons.info,
+            'Keep Learning',
+            'Continue developing your skills by completing '
+                'your available learning modules.',
+            Icons.menu_book_outlined,
+            'Update',
           ),
 
           announcementCard(
-            'Welcome to Excelerate',
-            'Welcome to the Excelerate learning and opportunity '
-                'platform. Explore programs and start learning today.',
-            'August 8, 2026',
-            Icons.campaign,
+            'Share Your Feedback',
+            'Your feedback helps us improve the Next Learn '
+                'learning experience.',
+            Icons.feedback_outlined,
+            'Reminder',
           ),
         ],
       ),
@@ -75,70 +108,86 @@ class AnnouncementsScreen extends StatelessWidget {
   Widget announcementCard(
     String title,
     String description,
-    String date,
     IconData icon,
+    String label,
   ) {
+    const purple = Color(0xFF6C4CE6);
+    const lightPurple = Color(0xFFE9E3FF);
+
     return Card(
-      margin: const EdgeInsets.only(bottom: 18),
+      margin: const EdgeInsets.only(bottom: 16),
       elevation: 3,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(18),
       ),
+
       child: Padding(
         padding: const EdgeInsets.all(18),
-        child: Column(
+
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  radius: 27,
-                  child: Icon(icon),
-                ),
-
-                const SizedBox(width: 15),
-
-                Expanded(
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 15),
-
-            Text(
-              description,
-              style: const TextStyle(
-                fontSize: 15,
-                color: Colors.grey,
+            CircleAvatar(
+              radius: 26,
+              backgroundColor: lightPurple,
+              child: Icon(
+                icon,
+                color: purple,
+                size: 27,
               ),
             ),
 
-            const SizedBox(height: 12),
+            const SizedBox(width: 15),
 
-            Row(
-              children: [
-                const Icon(
-                  Icons.calendar_today,
-                  size: 16,
-                ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
 
-                const SizedBox(width: 6),
-
-                Text(
-                  date,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: Colors.grey,
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 9,
+                          vertical: 5,
+                        ),
+                        decoration: BoxDecoration(
+                          color: lightPurple,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          label,
+                          style: const TextStyle(
+                            color: purple,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+
+                  const SizedBox(height: 8),
+
+                  Text(
+                    description,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                      height: 1.4,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
