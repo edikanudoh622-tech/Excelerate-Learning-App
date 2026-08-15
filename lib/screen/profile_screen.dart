@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    const purple = Color(0xFF6C4CE6);
-    const lightPurple = Color(0xFFE9E3FF);
+    const pink = Color(0xFFE91E8C);
+    const lightPink = Color(0xFFF8D9EA);
+
 
     return Scaffold(
+      backgroundColor: const Color(0xFFF7F8FC),
+
+
       appBar: AppBar(
+        backgroundColor: pink,
+        foregroundColor: Colors.white,
         title: const Text(
           'Profile',
           style: TextStyle(
@@ -18,8 +26,10 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
 
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
+
 
         child: Column(
           children: [
@@ -27,27 +37,32 @@ class ProfileScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(25),
+
+
               decoration: BoxDecoration(
-                color: lightPurple,
+                color: lightPink,
                 borderRadius: BorderRadius.circular(20),
               ),
+
 
               child: const Column(
                 children: [
                   CircleAvatar(
                     radius: 45,
-                    backgroundColor: purple,
+                    backgroundColor: Colors.white,
                     child: Icon(
                       Icons.person_rounded,
                       size: 50,
-                      color: Colors.white,
+                      color: pink,
                     ),
                   ),
 
+
                   SizedBox(height: 15),
 
+
                   Text(
-                    'Next Learn User',
+                    'Excelerate User',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -55,7 +70,9 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
 
+
                   SizedBox(height: 5),
+
 
                   Text(
                     'Learner',
@@ -68,20 +85,27 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
 
+
             const SizedBox(height: 25),
+
 
             // Learning progress
             Card(
               elevation: 2,
+
+
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18),
               ),
 
+
               child: Padding(
                 padding: const EdgeInsets.all(20),
 
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+
 
                   children: [
                     const Text(
@@ -92,29 +116,39 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
 
+
                     const SizedBox(height: 18),
+
 
                     Row(
                       children: [
                         Container(
                           padding: const EdgeInsets.all(12),
+
+
                           decoration: BoxDecoration(
-                            color: lightPurple,
+                            color: lightPink,
                             borderRadius:
                                 BorderRadius.circular(12),
                           ),
+
+
                           child: const Icon(
                             Icons.menu_book_rounded,
-                            color: purple,
+                            color: pink,
                           ),
                         ),
 
+
                         const SizedBox(width: 15),
+
 
                         const Expanded(
                           child: Column(
                             crossAxisAlignment:
                                 CrossAxisAlignment.start,
+
+
                             children: [
                               Text(
                                 'Courses Started',
@@ -122,7 +156,11 @@ class ProfileScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
+
+
                               SizedBox(height: 5),
+
+
                               Text(
                                 '4 courses',
                                 style: TextStyle(
@@ -133,40 +171,51 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
 
+
                         const Text(
                           '4',
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: purple,
+                            color: pink,
                           ),
                         ),
                       ],
                     ),
 
+
                     const SizedBox(height: 18),
+
 
                     Row(
                       children: [
                         Container(
                           padding: const EdgeInsets.all(12),
+
+
                           decoration: BoxDecoration(
-                            color: lightPurple,
+                            color: lightPink,
                             borderRadius:
                                 BorderRadius.circular(12),
                           ),
+
+
                           child: const Icon(
                             Icons.check_circle_outline,
-                            color: purple,
+                            color: pink,
                           ),
                         ),
 
+
                         const SizedBox(width: 15),
+
 
                         const Expanded(
                           child: Column(
                             crossAxisAlignment:
                                 CrossAxisAlignment.start,
+
+
                             children: [
                               Text(
                                 'Completed',
@@ -174,7 +223,11 @@ class ProfileScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
+
+
                               SizedBox(height: 5),
+
+
                               Text(
                                 '2 courses',
                                 style: TextStyle(
@@ -185,12 +238,13 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
 
+
                         const Text(
                           '2',
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: purple,
+                            color: pink,
                           ),
                         ),
                       ],
@@ -200,14 +254,19 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
 
+
             const SizedBox(height: 20),
+
 
             // Account options
             Card(
               elevation: 2,
+
+
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18),
               ),
+
 
               child: Column(
                 children: [
@@ -217,7 +276,9 @@ class ProfileScreen extends StatelessWidget {
                     onTap: () {},
                   ),
 
+
                   const Divider(height: 1),
+
 
                   profileOption(
                     icon: Icons.notifications_outlined,
@@ -225,7 +286,9 @@ class ProfileScreen extends StatelessWidget {
                     onTap: () {},
                   ),
 
+
                   const Divider(height: 1),
+
 
                   profileOption(
                     icon: Icons.settings_outlined,
@@ -233,7 +296,9 @@ class ProfileScreen extends StatelessWidget {
                     onTap: () {},
                   ),
 
+
                   const Divider(height: 1),
+
 
                   profileOption(
                     icon: Icons.help_outline,
@@ -244,35 +309,42 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
 
+
             const SizedBox(height: 25),
+
 
             // Logout
             SizedBox(
               width: double.infinity,
               height: 52,
 
+
               child: OutlinedButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
                 },
 
+
                 icon: const Icon(
                   Icons.logout,
-                  color: purple,
+                  color: pink,
                 ),
+
 
                 label: const Text(
                   'Log Out',
                   style: TextStyle(
-                    color: purple,
+                    color: pink,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
 
+
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(
-                    color: purple,
+                    color: pink,
                   ),
+
 
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -286,13 +358,15 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
+
   Widget profileOption({
     required IconData icon,
     required String title,
     required VoidCallback onTap,
   }) {
-    const purple = Color(0xFF6C4CE6);
-    const lightPurple = Color(0xFFE9E3FF);
+    const pink = Color(0xFFE91E8C);
+    const lightPink = Color(0xFFF8D9EA);
+
 
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(
@@ -300,19 +374,23 @@ class ProfileScreen extends StatelessWidget {
         vertical: 5,
       ),
 
+
       leading: Container(
         padding: const EdgeInsets.all(10),
 
+
         decoration: BoxDecoration(
-          color: lightPurple,
+          color: lightPink,
           borderRadius: BorderRadius.circular(10),
         ),
 
+
         child: Icon(
           icon,
-          color: purple,
+          color: pink,
         ),
       ),
+
 
       title: Text(
         title,
@@ -321,11 +399,13 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
 
+
       trailing: const Icon(
         Icons.arrow_forward_ios,
         size: 16,
-        color: purple,
+        color: pink,
       ),
+
 
       onTap: onTap,
     );

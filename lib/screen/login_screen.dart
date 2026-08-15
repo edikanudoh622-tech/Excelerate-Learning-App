@@ -48,6 +48,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Keep the main screen white
+      backgroundColor: Colors.white,
+
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -58,31 +61,33 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Pink logo
                 Center(
                   child: Container(
                     width: 85,
                     height: 85,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFDCE8FF),
+                      color: const Color(0xFFF8D9EA),
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: const Icon(
                       Icons.school_rounded,
                       size: 48,
-                      color: Color(0xFF2563EB),
+                      color: Color(0xFFE91E8C),
                     ),
                   ),
                 ),
 
                 const SizedBox(height: 25),
 
+                // App name
                 const Center(
                   child: Text(
-                    'Next Learn',
+                    'Excelerate',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF172033),
+                      color: Color(0xFFE91E8C),
                     ),
                   ),
                 ),
@@ -139,7 +144,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
                     hintText: 'Enter your email',
-                    prefixIcon: Icon(Icons.email_outlined),
+                    prefixIcon: Icon(
+                      Icons.email_outlined,
+                      color: Color(0xFFE91E8C),
+                    ),
                   ),
                 ),
 
@@ -160,12 +168,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: obscurePassword,
                   decoration: InputDecoration(
                     hintText: 'Enter your password',
-                    prefixIcon: const Icon(Icons.lock_outline),
+                    prefixIcon: const Icon(
+                      Icons.lock_outline,
+                      color: Color(0xFFE91E8C),
+                    ),
                     suffixIcon: IconButton(
                       icon: Icon(
                         obscurePassword
                             ? Icons.visibility_outlined
                             : Icons.visibility_off_outlined,
+                        color: const Color(0xFFE91E8C),
                       ),
                       onPressed: () {
                         setState(() {
@@ -178,11 +190,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const SizedBox(height: 30),
 
+                // Pink Sign In button
                 SizedBox(
                   width: double.infinity,
                   height: 55,
                   child: ElevatedButton(
                     onPressed: login,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFE91E8C),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
                     child: const Text(
                       'Sign In',
                       style: TextStyle(

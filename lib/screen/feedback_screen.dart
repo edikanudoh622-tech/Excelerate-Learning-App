@@ -1,191 +1,264 @@
 import 'package:flutter/material.dart';
 
+
 class FeedbackScreen extends StatefulWidget {
   const FeedbackScreen({super.key});
+
 
   @override
   State<FeedbackScreen> createState() => _FeedbackScreenState();
 }
 
-class _FeedbackScreenState extends State<FeedbackScreen> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController feedbackController = TextEditingController();
 
-  int selectedRating = 0;
+class _FeedbackScreenState extends State<FeedbackScreen> {
+  final TextEditingController feedbackController =
+      TextEditingController();
+
+
+  int rating = 0;
+
+
+  @override
+  void dispose() {
+    feedbackController.dispose();
+    super.dispose();
+  }
+
 
   void submitFeedback() {
-    if (nameController.text.isEmpty ||
-        feedbackController.text.isEmpty ||
-        selectedRating == 0) {
+    if (rating == 0 || feedbackController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            'Please complete all fields and select a rating.',
+            'Please select a rating and enter your feedback.',
           ),
         ),
       );
       return;
     }
 
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text('Feedback Submitted'),
-          content: const Text(
-            'Thank you for your feedback! '
-            'Your response has been recorded.',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
 
-                setState(() {
-                  nameController.clear();
-                  feedbackController.clear();
-                  selectedRating = 0;
-                });
-              },
-              child: const Text('Done'),
-            ),
-          ],
-        );
-      },
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Thank you for your feedback!',
+        ),
+      ),
     );
+
+
+    feedbackController.clear();
+
+
+    setState(() {
+      rating = 0;
+    });
   }
 
-  @override
-  void dispose() {
-    nameController.dispose();
-    feedbackController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
+    const pink = Color(0xFFE91E8C);
+    const lightPink = Color(0xFFF8D9EA);
+
+
     return Scaffold(
+      backgroundColor: const Color(0xFFF7F8FC),
+
+
       appBar: AppBar(
+        backgroundColor: pink,
+        foregroundColor: Colors.white,
         title: const Text(
           'Feedback',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
 
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
+
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+
+
           children: [
-            const Text(
-              'Share Your Feedback',
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(22),
+
+
+              decoration: BoxDecoration(
+                color: lightPink,
+                borderRadius: BorderRadius.circular(18),
+              ),
+
+
+              child: const Column(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.feedback_outlined,
+                      color: pink,
+                      size: 32,
+                    ),
+                  ),
+
+
+                  SizedBox(height: 15),
+
+
+                  Text(
+                    'Share Your Feedback',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF172033),
+                    ),
+                  ),
+
+
+                  SizedBox(height: 8),
+
+
+                  Text(
+                    'Your feedback helps us improve your '
+                    'Excelerate experience.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.grey,
+                      height: 1.4,
+                    ),
+                  ),
+                ],
               ),
             ),
 
-            const SizedBox(height: 8),
-
-            const Text(
-              'Your feedback helps us improve the learning '
-              'experience and programs.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
 
             const SizedBox(height: 30),
 
+
             const Text(
-              'Your Name',
+              'How would you rate Excelerate?',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            const SizedBox(height: 8),
 
-            TextField(
-              controller: nameController,
-              decoration: InputDecoration(
-                hintText: 'Enter your name',
-                prefixIcon: const Icon(Icons.person),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
+            const SizedBox(height: 15),
 
-            const SizedBox(height: 25),
-
-            const Text(
-              'Rate Your Experience',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 10),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(5, (index) {
-                return IconButton(
-                  onPressed: () {
-                    setState(() {
-                      selectedRating = index + 1;
-                    });
-                  },
-                  icon: Icon(
-                    index < selectedRating
-                        ? Icons.star
-                        : Icons.star_border,
-                    size: 38,
-                    color: Colors.amber,
-                  ),
-                );
-              }),
+
+
+              children: List.generate(
+                5,
+                (index) {
+                  return IconButton(
+                    onPressed: () {
+                      setState(() {
+                        rating = index + 1;
+                      });
+                    },
+
+
+                    icon: Icon(
+                      index < rating
+                          ? Icons.star_rounded
+                          : Icons.star_border_rounded,
+                      size: 40,
+                      color: pink,
+                    ),
+                  );
+                },
+              ),
             ),
 
-            const SizedBox(height: 20),
+
+            const SizedBox(height: 25),
+
 
             const Text(
               'Your Feedback',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            const SizedBox(height: 8),
+
+            const SizedBox(height: 10),
+
 
             TextField(
               controller: feedbackController,
               maxLines: 6,
-              decoration: InputDecoration(
-                hintText: 'Tell us about your experience...',
+
+
+              decoration: const InputDecoration(
+                hintText: 'Tell us what you think...',
                 alignLabelWithHint: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+
+
+                prefixIcon: Padding(
+                  padding: EdgeInsets.only(
+                    bottom: 90,
+                  ),
+
+
+                  child: Icon(
+                    Icons.edit_outlined,
+                    color: pink,
+                  ),
                 ),
               ),
             ),
 
-            const SizedBox(height: 30),
+
+            const SizedBox(height: 25),
+
 
             SizedBox(
               width: double.infinity,
               height: 55,
+
+
               child: ElevatedButton.icon(
                 onPressed: submitFeedback,
-                icon: const Icon(Icons.send),
+
+
+                icon: const Icon(
+                  Icons.send_rounded,
+                ),
+
+
                 label: const Text(
                   'Submit Feedback',
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: pink,
+                  foregroundColor: Colors.white,
+
+
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
             ),

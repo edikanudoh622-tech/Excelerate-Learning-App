@@ -30,35 +30,58 @@ class _HomeScreenState extends State<HomeScreen> {
 
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectedIndex,
+
+        indicatorColor: const Color(0xFFF8D9EA),
+
         onDestinationSelected: (index) {
           setState(() {
             selectedIndex = index;
           });
         },
+
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
+            selectedIcon: Icon(
+              Icons.home,
+              color: Color(0xFFE91E8C),
+            ),
             label: 'Home',
           ),
+
           NavigationDestination(
             icon: Icon(Icons.explore_outlined),
-            selectedIcon: Icon(Icons.explore),
+            selectedIcon: Icon(
+              Icons.explore,
+              color: Color(0xFFE91E8C),
+            ),
             label: 'Programs',
           ),
+
           NavigationDestination(
             icon: Icon(Icons.menu_book_outlined),
-            selectedIcon: Icon(Icons.menu_book),
+            selectedIcon: Icon(
+              Icons.menu_book,
+              color: Color(0xFFE91E8C),
+            ),
             label: 'Learning',
           ),
+
           NavigationDestination(
             icon: Icon(Icons.notifications_outlined),
-            selectedIcon: Icon(Icons.notifications),
+            selectedIcon: Icon(
+              Icons.notifications,
+              color: Color(0xFFE91E8C),
+            ),
             label: 'Updates',
           ),
+
           NavigationDestination(
             icon: Icon(Icons.feedback_outlined),
-            selectedIcon: Icon(Icons.feedback),
+            selectedIcon: Icon(
+              Icons.feedback,
+              color: Color(0xFFE91E8C),
+            ),
             label: 'Feedback',
           ),
         ],
@@ -75,7 +98,7 @@ class DashboardPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Next Learn',
+          'Excelerate',
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
@@ -83,7 +106,10 @@ class DashboardPage extends StatelessWidget {
 
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_outlined),
+            icon: const Icon(
+              Icons.notifications_outlined,
+              color: Colors.grey,
+            ),
             onPressed: () {
               Navigator.push(
                 context,
@@ -96,7 +122,10 @@ class DashboardPage extends StatelessWidget {
           ),
 
           IconButton(
-            icon: const Icon(Icons.person_outline),
+            icon: const Icon(
+              Icons.person_outline,
+              color: Colors.grey,
+            ),
             onPressed: () {
               Navigator.push(
                 context,
@@ -136,12 +165,13 @@ class DashboardPage extends StatelessWidget {
 
             const SizedBox(height: 25),
 
+            // Pink main feature section
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(22),
 
               decoration: BoxDecoration(
-                color: const Color(0xFF6C4CE6),
+                color: const Color(0xFFE91E8C),
                 borderRadius: BorderRadius.circular(18),
               ),
 
@@ -248,9 +278,11 @@ class DashboardPage extends StatelessWidget {
 
         leading: CircleAvatar(
           radius: 28,
-          backgroundColor: const Color(0xFFE9E3FF),
-          child: Icon(icon,
-          color: const Color(0xFF6C4CE6)),
+          backgroundColor: const Color(0xFFF8D9EA),
+          child: Icon(
+            icon,
+            color: const Color(0xFFE91E8C),
+          ),
         ),
 
         title: Text(
@@ -269,7 +301,7 @@ class DashboardPage extends StatelessWidget {
         trailing: const Icon(
           Icons.arrow_forward_ios,
           size: 18,
-          color: Color(0xFF6C4CE6),
+          color: Color(0xFFE91E8C),
         ),
 
         onTap: () {

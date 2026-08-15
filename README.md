@@ -1,8 +1,8 @@
-# Next Learn 🚀
+# Excelerate 🚀
 
 ## Project Overview
 
-Next Learn is a Flutter-based learning and opportunity application designed to help users discover development programs, access learning materials, and stay updated with relevant announcements.
+Excelerate is a Flutter-based learning and opportunity application designed to help users discover development programs, access learning materials, and stay updated with relevant announcements.
 
 The application provides a simple and user-friendly platform where learners can explore available programs, view program details, access learning content, and keep track of important updates.
 
@@ -10,11 +10,11 @@ The application provides a simple and user-friendly platform where learners can 
 
 Many learners have difficulty finding relevant development opportunities, learning resources, and important program updates in one convenient place.
 
- Next Learn addresses this problem by providing a centralized platform where users can explore programs, access learning materials, and receive important announcements.
+ Excelerate addresses this problem by providing a centralized platform where users can explore programs, access learning materials, and receive important announcements.
 
 ## Objectives
 
-The main objectives of the Next Learn application are to:
+The main objectives of the Excelerate application are to:
 
 - Help users discover available development programs.
 - Provide access to learning resources.

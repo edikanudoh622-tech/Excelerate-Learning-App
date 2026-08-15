@@ -1,44 +1,61 @@
 import 'package:flutter/material.dart';
 import 'program_details_screen.dart';
 
+
 class ProgramsScreen extends StatelessWidget {
   const ProgramsScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    const purple = Color(0xFF6C4CE6);
-    const lightPurple = Color(0xFFE9E3FF);
+    const pink = Color(0xFFE91E8C);
+    const lightPink = Color(0xFFF8D9EA);
+
 
     return Scaffold(
+      backgroundColor: const Color(0xFFF7F8FC),
+
+
       appBar: AppBar(
+        backgroundColor: pink,
+        foregroundColor: Colors.white,
         title: const Text(
           'Programs',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
+
 
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Container(
             padding: const EdgeInsets.all(20),
+
+
             decoration: BoxDecoration(
-              color: lightPurple,
+              color: lightPink,
               borderRadius: BorderRadius.circular(18),
             ),
+
+
             child: const Row(
               children: [
                 CircleAvatar(
                   radius: 28,
-                  backgroundColor: purple,
+                  backgroundColor: Colors.white,
                   child: Icon(
                     Icons.explore,
-                    color: Colors.white,
+                    color: pink,
                     size: 30,
                   ),
                 ),
 
+
                 SizedBox(width: 15),
+
 
                 Expanded(
                   child: Text(
@@ -54,7 +71,9 @@ class ProgramsScreen extends StatelessWidget {
             ),
           ),
 
+
           const SizedBox(height: 12),
+
 
           const Text(
             'Discover opportunities that can help you develop '
@@ -66,7 +85,9 @@ class ProgramsScreen extends StatelessWidget {
             ),
           ),
 
+
           const SizedBox(height: 25),
+
 
           programCard(
             context,
@@ -77,6 +98,7 @@ class ProgramsScreen extends StatelessWidget {
             '8 Weeks',
           ),
 
+
           programCard(
             context,
             'Data Analytics Program',
@@ -86,6 +108,7 @@ class ProgramsScreen extends StatelessWidget {
             '10 Weeks',
           ),
 
+
           programCard(
             context,
             'Project Management Program',
@@ -94,6 +117,7 @@ class ProgramsScreen extends StatelessWidget {
             Icons.manage_accounts,
             '6 Weeks',
           ),
+
 
           programCard(
             context,
@@ -108,6 +132,7 @@ class ProgramsScreen extends StatelessWidget {
     );
   }
 
+
   Widget programCard(
     BuildContext context,
     String title,
@@ -115,38 +140,47 @@ class ProgramsScreen extends StatelessWidget {
     IconData icon,
     String duration,
   ) {
-    const purple = Color(0xFF6C4CE6);
-    const lightPurple = Color(0xFFE9E3FF);
+    const pink = Color(0xFFE91E8C);
+    const lightPink = Color(0xFFF8D9EA);
+
 
     return Card(
       margin: const EdgeInsets.only(bottom: 18),
-      elevation: 3,
+      elevation: 2,
+      color: Colors.white,
+
 
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(15),
       ),
+
 
       child: Padding(
         padding: const EdgeInsets.all(18),
 
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+
 
           children: [
             Row(
               children: [
                 CircleAvatar(
                   radius: 28,
-                  backgroundColor: lightPurple,
+                  backgroundColor: lightPink,
+
 
                   child: Icon(
                     icon,
                     size: 30,
-                    color: purple,
+                    color: pink,
                   ),
                 ),
 
+
                 const SizedBox(width: 15),
+
 
                 Expanded(
                   child: Text(
@@ -160,7 +194,9 @@ class ProgramsScreen extends StatelessWidget {
               ],
             ),
 
+
             const SizedBox(height: 15),
+
 
             Text(
               description,
@@ -171,17 +207,21 @@ class ProgramsScreen extends StatelessWidget {
               ),
             ),
 
+
             const SizedBox(height: 15),
+
 
             Row(
               children: [
                 const Icon(
                   Icons.access_time,
                   size: 18,
-                  color: purple,
+                  color: pink,
                 ),
 
+
                 const SizedBox(width: 5),
+
 
                 Text(
                   duration,
@@ -190,7 +230,9 @@ class ProgramsScreen extends StatelessWidget {
                   ),
                 ),
 
+
                 const Spacer(),
+
 
                 ElevatedButton(
                   onPressed: () {
@@ -207,10 +249,12 @@ class ProgramsScreen extends StatelessWidget {
                     );
                   },
 
+
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: purple,
+                    backgroundColor: pink,
                     foregroundColor: Colors.white,
                   ),
+
 
                   child: const Text(
                     'View Details',

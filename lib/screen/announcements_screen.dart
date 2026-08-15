@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
+
 class AnnouncementsScreen extends StatelessWidget {
   const AnnouncementsScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    const purple = Color(0xFF6C4CE6);
-    const lightPurple = Color(0xFFE9E3FF);
+    const pink = Color(0xFFE91E8C);
+    const lightPink = Color(0xFFF8D9EA);
+
 
     return Scaffold(
+      backgroundColor: const Color(0xFFF7F8FC),
+
+
       appBar: AppBar(
+        backgroundColor: pink,
+        foregroundColor: Colors.white,
         title: const Text(
           'Announcements',
           style: TextStyle(
@@ -18,28 +26,35 @@ class AnnouncementsScreen extends StatelessWidget {
         ),
       ),
 
+
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Container(
             padding: const EdgeInsets.all(20),
+
+
             decoration: BoxDecoration(
-              color: lightPurple,
+              color: lightPink,
               borderRadius: BorderRadius.circular(18),
             ),
+
+
             child: const Row(
               children: [
                 CircleAvatar(
                   radius: 28,
-                  backgroundColor: purple,
+                  backgroundColor: Colors.white,
                   child: Icon(
                     Icons.notifications_rounded,
-                    color: Colors.white,
+                    color: pink,
                     size: 30,
                   ),
                 ),
 
+
                 SizedBox(width: 15),
+
 
                 Expanded(
                   child: Text(
@@ -55,7 +70,9 @@ class AnnouncementsScreen extends StatelessWidget {
             ),
           ),
 
+
           const SizedBox(height: 12),
+
 
           const Text(
             'Stay informed about new programs, learning '
@@ -67,7 +84,9 @@ class AnnouncementsScreen extends StatelessWidget {
             ),
           ),
 
+
           const SizedBox(height: 25),
+
 
           announcementCard(
             'New Learning Opportunities',
@@ -77,6 +96,7 @@ class AnnouncementsScreen extends StatelessWidget {
             'New',
           ),
 
+
           announcementCard(
             'Program Applications Open',
             'Applications are now open for selected development '
@@ -85,6 +105,7 @@ class AnnouncementsScreen extends StatelessWidget {
             'Important',
           ),
 
+
           announcementCard(
             'Keep Learning',
             'Continue developing your skills by completing '
@@ -92,6 +113,7 @@ class AnnouncementsScreen extends StatelessWidget {
             Icons.menu_book_outlined,
             'Update',
           ),
+
 
           announcementCard(
             'Share Your Feedback',
@@ -105,39 +127,50 @@ class AnnouncementsScreen extends StatelessWidget {
     );
   }
 
+
   Widget announcementCard(
     String title,
     String description,
     IconData icon,
     String label,
   ) {
-    const purple = Color(0xFF6C4CE6);
-    const lightPurple = Color(0xFFE9E3FF);
+    const pink = Color(0xFFE91E8C);
+    const lightPink = Color(0xFFF8D9EA);
+
 
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
-      elevation: 3,
+      elevation: 2,
+      color: Colors.white,
+
+
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
       ),
 
+
       child: Padding(
         padding: const EdgeInsets.all(18),
+
 
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
               radius: 26,
-              backgroundColor: lightPurple,
+              backgroundColor: lightPink,
+
+
               child: Icon(
                 icon,
-                color: purple,
+                color: pink,
                 size: 27,
               ),
             ),
 
+
             const SizedBox(width: 15),
+
 
             Expanded(
               child: Column(
@@ -155,19 +188,24 @@ class AnnouncementsScreen extends StatelessWidget {
                         ),
                       ),
 
+
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 9,
                           vertical: 5,
                         ),
+
+
                         decoration: BoxDecoration(
-                          color: lightPurple,
+                          color: lightPink,
                           borderRadius: BorderRadius.circular(20),
                         ),
+
+
                         child: Text(
                           label,
                           style: const TextStyle(
-                            color: purple,
+                            color: pink,
                             fontSize: 11,
                             fontWeight: FontWeight.bold,
                           ),
@@ -176,7 +214,9 @@ class AnnouncementsScreen extends StatelessWidget {
                     ],
                   ),
 
+
                   const SizedBox(height: 8),
+
 
                   Text(
                     description,
