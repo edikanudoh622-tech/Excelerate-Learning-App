@@ -26,11 +26,37 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
 
   void submitFeedback() {
-    if (rating == 0 || feedbackController.text.trim().isEmpty) {
+    final feedback = feedbackController.text.trim();
+
+
+    // Validate rating
+    if (rating == 0) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please select a rating first.'),
+        ),
+      );
+      return;
+    }
+
+
+    // Validate feedback
+    if (feedback.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter your feedback.'),
+        ),
+      );
+      return;
+    }
+
+
+    // Validate minimum length
+    if (feedback.length < 10) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            'Please select a rating and enter your feedback.',
+            'Please enter at least 10 characters of feedback.',
           ),
         ),
       );
@@ -38,10 +64,11 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
     }
 
 
+    // Successful submission
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text(
-          'Thank you for your feedback!',
+          'Thank you! Your feedback has been submitted.',
         ),
       ),
     );

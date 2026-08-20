@@ -1,0 +1,28 @@
+{
+  "programs": [
+    {
+      "title": "Digital Skills Program",
+      "description": "Develop essential digital and technology skills through practical learning.",
+      "icon": "computer",
+      "duration": "8 Weeks"
+    },
+    {
+      "title": "Data Analytics Program",
+      "description": "Learn how to work with data, analyze information and make data-driven decisions.",
+      "icon": "analytics",
+      "duration": "10 Weeks"
+    },
+    {
+      "title": "Project Management Program",
+      "description": "Develop skills in planning, organizing and managing projects effectively.",
+      "icon": "manage_accounts",
+      "duration": "6 Weeks"
+    },
+    {
+      "title": "Leadership & Career Development",
+      "description": "Build communication, leadership and professional skills for your career.",
+      "icon": "groups",
+      "duration": "8 Weeks"
+    }
+  ]
+}
